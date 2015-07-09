@@ -1,4 +1,5 @@
 asyncio
 aiohttp
 aiomysql
+aiopg
 jinja2
