@@ -8,7 +8,7 @@ __all__ = []
 __author__ = "lfblogs (email:13701242710@163.com)"
 __version__ = "1.0.1"
 
-from Pyaio.conf.method import ProduceDict, MergeDict, Configure2Dict
+from aiopy.conf.method import ProduceDict, MergeDict, Configure2Dict
 
 def Configure(configs, configs_prodution = None):
     if configs_prodution:

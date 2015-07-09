@@ -11,8 +11,8 @@ __version__ = "1.0.1"
 
 import asyncio
 
-from Pyaio.orm.field import Field
-from Pyaio.db.pool import select, execute
+from aiopy.orm.field import Field
+from aiopy.db.pool import select, execute
 
 import logging
 

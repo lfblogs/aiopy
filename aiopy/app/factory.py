@@ -19,8 +19,8 @@ from jinja2 import Environment,FileSystemLoader
 from datetime import datetime
 from urllib import parse
 from aiohttp import web
-from Pyaio.apis.Error import APIError
-from Pyaio.http.handlers import RequestHandler
+from aiopy.apis.Error import APIError
+from aiopy.http.handlers import RequestHandler
 import logging
 
 @asyncio.coroutine

@@ -15,7 +15,7 @@ import functools
 
 from urllib import parse
 from aiohttp import web
-from Pyaio.apis.Error import APIError
+from aiopy.apis.Error import APIError
 import logging
 
 logging.basicConfig(level=logging.INFO)
