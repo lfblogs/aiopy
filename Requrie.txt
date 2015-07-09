@@ -1,0 +1,4 @@
+asyncio
+aiohttp
+aiomysql
+jinja2
