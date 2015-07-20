@@ -68,7 +68,10 @@ def response_factory(app, handler):
                 return resp
             else:
                 resp = False
-                r['__user__'] = request.__user__
+                try:
+                    r['__user__'] = request.__user__
+                except:
+                    r['__user__'] = ''
                 if isinstance(app['__templating__'], list):
 
                     for index,i in enumerate(app['__templating__']):
