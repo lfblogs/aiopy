@@ -1,18 +1,19 @@
-#!/usr/bin/env python
 # -*- coding: UTF-8 -*-
-# Language Version: 3.4.x
-# Last Modified: 2015/7/8 21:22
 
+__author__ = "Liu Fei"
+__github__ = "http://github.com/lfblogs"
+__all__ = [
+    "Configure",
+]
 
-__all__ = []
-__author__ = "lfblogs (email:13701242710@163.com)"
-__version__ = "1.0.1"
+"""
 
-from aiopy.conf.method import ProduceDict, MergeDict, Configure2Dict
+Define conf interface
 
-def Configure(configs, configs_prodution = None):
-    if configs_prodution:
-        config = ProduceDict(MergeDict(Configure2Dict(configs),Configure2Dict(configs_prodution)))
-    else:
-        config = ProduceDict(Configure2Dict(configs))
+"""
+
+from aiopy.conf.method import OnlineDict, MergeDict, Configure2Dict
+
+def Configure(develop, online = None):
+    config = OnlineDict(MergeDict(Configure2Dict(develop,'develop'),Configure2Dict(online,'online'))) if online else OnlineDict(Configure2Dict(develop,'develop'))
     return config

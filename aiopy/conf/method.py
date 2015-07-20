@@ -1,12 +1,17 @@
-#!/usr/bin/env python
 # -*- coding: UTF-8 -*-
-# Language Version: 3.4.x
-# Last Modified: 2015/7/8 23:22
 
+__author__ = "Liu Fei"
+__github__ = "http://github.com/lfblogs"
+__all__ = [
+    "SimpleDict",
+    "Configure2Dict",
+    "MergeDict",
+    "OnlineDict"
+]
 
-__all__ = []
-__author__ = "lfblogs (email:13701242710@163.com)"
-__version__ = "1.0.1"
+"""
+"""
+
 
 import os
 import sys
@@ -30,7 +35,23 @@ class SimpleDict(dict):
         self[key] = value
 
 
-def Configure2Dict(file):
+def Configure2Dict(name,key=None):
+    '''
+        loading config, return dict
+    '''
+    config = {}
+    name = __import__(name)
+    if key == 'develop':
+        for k, v in name.develop.__dict__.items():
+            if k[0:2] != '__'  and k[-2:] != '__':
+                config[k] = v
+    elif key == 'online':
+        for k, v in name.online.__dict__.items():
+            if k[0:2] != '__'  and k[-2:] != '__':
+                config[k] = v
+    return config
+
+def Configure2Dict_old(file):
     '''
         loading conifg file, return dict
     '''
@@ -49,23 +70,23 @@ def Configure2Dict(file):
                 config[k] = v
         return config
 
-def MergeDict(default, prodution):
+def MergeDict(develop, online):
     '''
         merge dict
     '''
     d = {}
-    for k, v in default.items():
-        if k in prodution:
-            d[k] = MergeDict(v, prodution[k]) if isinstance(v, dict) else prodution[k]
+    for k, v in develop.items():
+        if k in online:
+            d[k] = MergeDict(v, online[k]) if isinstance(v, dict) else online[k]
         else:
             d[k] = v
     return d
 
-def ProduceDict(d):
+def OnlineDict(d):
     '''
-        produce dict.
+        online dict.
     '''
     simpledict = SimpleDict()
     for k, v in d.items():
-        simpledict[k] = ProduceDict(v) if isinstance(v, dict) else v
+        simpledict[k] = OnlineDict(v) if isinstance(v, dict) else v
     return simpledict

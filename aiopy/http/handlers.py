@@ -1,22 +1,30 @@
-#!/usr/bin/env python
 # -*- coding: UTF-8 -*-
-# Language Version: 3.4.x
-# Last Modified: 2015/7/9 1:41
 
+__author__ = "Liu Fei"
+__github__ = "http://github.com/lfblogs"
+__all__ = [
+    "get_required_kw_args",
+    "get_named_kw_args",
+    "has_named_kw_args",
+    "has_var_kw_arg",
+    "has_request_arg",
+    "RequestHandler",
+]
 
-__all__ = []
-__author__ = "lfblogs (email:13701242710@163.com)"
-__version__ = "1.0.1"
+"""
+"""
 
 import asyncio
-import os
 import inspect
-import functools
+import logging
 
 from urllib import parse
-from aiohttp import web
-from aiopy.apis.Error import APIError
-import logging
+try:
+    from aiohttp import web
+except ImportError:
+    from aiopy.required.aiohttp import web
+from aiopy.api import APIError
+
 
 logging.basicConfig(level=logging.INFO)
 

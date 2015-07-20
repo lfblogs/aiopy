@@ -1,9 +1,23 @@
-#!/usr/bin/env python
 # -*- coding: UTF-8 -*-
-# Language Version: 3.4.x
-# Last Modified: 2015/7/8 23:40
 
+__author__ = "Liu Fei"
+__github__ = "http://github.com/lfblogs"
+__all__ = [
+    "Pool",
+    "select",
+    "execute",
+    "pool",
+    "exc",
+    "field",
+    "metaclass",
+    "models",
+]
 
-__all__ = []
-__author__ = "lfblogs (email:13701242710@163.com)"
-__version__ = "1.0.1"
+"""
+
+Define database connection pool , execute method and simple orm.
+
+"""
+
+from aiopy.db.pool import Pool
+from aiopy.db.exc import select,execute

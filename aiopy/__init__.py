@@ -1,9 +1,21 @@
-#!/usr/bin/env python
 # -*- coding: UTF-8 -*-
-# Language Version: 3.4.x
-# Last Modified: 2015/7/8 21:22
 
+__author__ = "Liu Fei"
+__github__ = "http://github.com/lfblogs"
+__all__ = [
+    "http",
+    "required",
+    "utils",
+    "version"
+]
 
-__all__ = []
-__author__ = "lfblogs (email:13701242710@163.com)"
-__version__ = "1.0.1"
+"""
+
+aiomysql,aiohttp was not found,try import required modules.
+
+"""
+
+__version__ = "1.1.0"
+
+def version():
+    return __version__

@@ -1,12 +1,23 @@
-#!/usr/bin/env python
 # -*- coding: UTF-8 -*-
-# Language Version: 3.4.x
-# Last Modified: 2015/7/9 1:21
 
+__author__ = "Liu Fei"
+__github__ = "http://github.com/lfblogs"
+__all__ = [
+    "Field",
+    "StringField",
+    "BooleanField",
+    "IntegerField",
+    "FloatField",
+    "TextField",
 
-__all__ = []
-__author__ = "lfblogs (email:13701242710@163.com)"
-__version__ = "1.0.1"
+]
+
+"""
+
+Define field
+
+"""
+
 
 class Field(object):
     def __init__(self, name, column_type, primary_key, default):
